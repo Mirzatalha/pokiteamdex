@@ -1,0 +1,79 @@
+import React, { useState } from "react";
+
+// 1. import `ChakraProvider` component
+import {
+  ChakraProvider,
+  InputGroup,
+  InputRightAddon,
+  Input,
+  Box, Button,
+  SimpleGrid,
+  FormControl,
+  Icon,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Container,
+  Flex,
+  useToast, Heading
+} from "@chakra-ui/react"
+
+
+function App() {
+  const [st1, setst1] = useState('');
+  // const handleChange = (event) => setst1(event.target.st1);
+  function DataRecieve() {
+
+    // if(namePokemon!==''){
+    alert(st1);
+    // }
+  }
+  // 2. Use at the root of your app
+  return (
+    <ChakraProvider>
+      <Container
+        backgroundImage="url('https://w0.peakpx.com/wallpaper/700/857/HD-wallpaper-poke-ball-love-blackberry-life-anime-pokemon-3d-black-red-transformer.jpg')"
+        backgroundPosition="center">
+        <Flex height="100vh" alignItems="center" justifyContent="center"  >
+          <Flex direction="column" >
+            <Heading mb={50} color="white">
+              Search for Pokemon!
+            </Heading>
+            <FormControl >
+              <Input placeholder={"Eg; Pikachu"}
+                
+                onchange={(e) => setst1(e.target.st1)}
+
+                rounded={25} color="white" p={5} size={'lg'} />
+              <Button onClick={DataRecieve} mt={1} mr={1} backgroundColor="blue.500" position={"absolute"} rounded={25} right={0}   >
+                Go!
+              </Button>
+            </FormControl>
+          </Flex>
+        </Flex>
+      </Container>
+
+    </ChakraProvider>
+    // <ChakraProvider>
+    //   <Container style={{ padding: 20, }} >
+    //     <FormControl id="email"  >
+    //       <InputGroup>
+    //         <Input placeholder="Name of Pokemon" name="pokemon" type="email" />
+    //         <InputRightAddon padding="0" children={<Button onClick={DataRecieve} type="submit" >Go!</Button>} />
+    //       </InputGroup>
+
+    //     </FormControl>
+    //   </Container>
+    // </ChakraProvider>
+  )
+}
+export default App;
+
+
+{/* <FormControl id="email"  >
+<InputGroup>
+  <Input placeholder="Name of Pokemon" name="pokemon" type="email" />
+  <InputRightAddon padding="0" children={<Button onClick={DataRecieve} type="submit" >Go!</Button>} />
+</InputGroup>
+
+</FormControl> */}
